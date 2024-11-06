@@ -118,13 +118,6 @@ export default function FormDialog() {
           setUserPwErrorMsg('');
         }
         break;
-      case 'userBojId':
-        if (!value) {
-          setUserBojErrorMsg('백준 ID를 입력해 주세요');
-        } else {
-          setUserBojErrorMsg('');
-        }
-        break;
     }
   };
 
@@ -205,7 +198,6 @@ export default function FormDialog() {
               helperText={userNickErrorMsg}
             />
             <TextField
-              required={true}
               margin="dense"
               id="userBojId"
               label="백준 ID"
@@ -214,9 +206,6 @@ export default function FormDialog() {
               variant="standard"
               onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
                 handleForm('userBojId', e.target.value);
-              }}
-              onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
-                handleValidation('userBojId', e.target.value);
               }}
               error={Boolean(userBojErrorMsg)}
               helperText={userBojErrorMsg}
