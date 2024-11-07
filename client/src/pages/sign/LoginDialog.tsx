@@ -167,6 +167,13 @@ const LoginDialog = () => {
               label="ID"
               variant="outlined"
               error={userIdFieldEmpty}
+              onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
+                if (!userId) {
+                  setUserIdFieldEmpty(true);
+                } else {
+                  setUserIdFieldEmpty(false);
+                }
+              }}
               helperText={userIdFieldEmpty && 'ID를 입력해 주세요.'}
               value={userId}
               // margin="dense"
@@ -184,6 +191,13 @@ const LoginDialog = () => {
               value={userPw}
               margin="dense"
               error={userPwFieldEmpty}
+              onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
+                if (!userPw) {
+                  setUserPwFieldEmpty(true);
+                } else {
+                  setUserPwFieldEmpty(false);
+                }
+              }}
               helperText={userPwFieldEmpty && 'Password를 입력해 주세요.'}
               onInput={(e) => {
                 setUserPw((e.target as HTMLInputElement).value);
